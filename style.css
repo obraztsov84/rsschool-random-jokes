@@ -1,0 +1,100 @@
+body {
+  margin: 0;
+  padding: 0;
+  opacity: 0;  
+  animation: ani 2.5s forwards;
+
+  background: #bbbbbb;
+  /* background: linear-gradient(150deg, rgba(28,0,36,1) 0%, rgba(30,30,148,1) 35%, rgba(90,0,175,1) 100%);  */
+  background-repeat: no-repeat;
+}
+
+@keyframes ani {  
+  0% {opacity: 0;}  
+  100% {opacity: 1;}
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items:center;
+  position: relative;
+  background-color: #999999;
+  max-width: 1000px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  margin: auto 0;
+
+  width:100%;
+  color: #000000;
+  font-family:sans-serif
+}
+
+.column {
+  width: 50%;
+}
+
+.chat {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
+}
+.btns{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.btn {
+  padding: 5px;
+  height: 40px;
+  min-width:160px;
+  font-weight: 700;
+}
+
+.mr-skeletor {
+  cursor: pointer;
+  width: 480px;
+  height: 480px;
+  background-image: url("./assets/skeletor/skeletor-on-the-ground.png");
+  background-size: contain;
+  background-repeat:no-repeat;
+  background-position: center;
+    @media (max-width:800px) {
+      width:320px;
+      height:320px;      
+    }
+}
+
+/* FOOTER */
+.footer {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  width:100%;
+
+  padding: 5px 0;
+}
+
+.footer-item {
+  display: flex;
+  align-items: center;
+}
+
+.footer-date {
+  color: #000;
+  padding-left: 30px;
+  padding-right: 30px;
+  font-size: larger;
+  font-weight: 700;
+}
