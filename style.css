@@ -125,3 +125,34 @@ h1, h2, h3, p {
   90% { transform: translate(1px, 2px) rotate(0deg); }
   100% { transform: translate(1px, -2px) rotate(-1deg); }
 }
+
+div.speech {
+  display:none;
+	position: absolute;
+  top:-50px;
+  right:-200px;
+
+	width: 200px;
+	height: 70px;
+	text-align: center;
+	background-color: #fff;
+	border: 8px solid #666;
+	-webkit-border-radius: 30px;
+	-moz-border-radius: 30px;
+	border-radius: 30px;
+	-webkit-box-shadow: 2px 2px 4px #888;
+	-moz-box-shadow: 2px 2px 4px #888;
+	box-shadow: 2px 2px 4px #888;
+}
+
+.speech-text {
+  margin: 15px 5px;
+}
+
+.speech.show {
+  display: block;
+}
+
+.skeletor-wrapper {
+  position: relative;
+}

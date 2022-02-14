@@ -4,12 +4,15 @@ const jokeBtn=document.querySelector(".btn-joke");
 const jokeHolder=document.querySelector(".joke-holder")
 const audio = document.querySelector(".audio");
 const skeletor = document.querySelector(".mr-skeletor");
+const bubble = document.querySelector(".speech")
+const bubbleText = document.querySelector(".speech-text")
 
 let skeletorLaughtFrase = [
   "Хахаха",
   "Щекотно",
   "Ого, давай еще",
   "Соскучился по чужим прикосновениям",
+  "Достаточно",
   "Наверное хватит",
   "Чел, это перестает быть смешным",
   "Уже как то по гейски выглядит",
@@ -17,7 +20,10 @@ let skeletorLaughtFrase = [
   "Прекрати"
 ]
 
-skeletor.addEventListener("click", () => sceletorRandomLaught());
+skeletor.addEventListener("click", () => {
+  sceletorRandomLaught(),
+  tickles()
+});
 
 
 jokeBtn.addEventListener("click", () => jokeEvent(jokeHolder, true))
@@ -45,6 +51,12 @@ let randomFive=Math.floor(Math.random()*5+1);
   setTimeout(()=>{skeletor.classList.remove("animation-shake")}, 1000)
 }
 
-
+let theshhold=0;
+function tickles() {
+  bubbleText.textContent=skeletorLaughtFrase[theshhold]
+  bubble.classList.add("show")
+  setTimeout(()=>{bubble.classList.remove("show")}, 2000)
+  if (theshhold<9) theshhold++;
+}
 
 jokeEvent(jokeHolder)
