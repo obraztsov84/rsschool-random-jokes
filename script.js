@@ -2,10 +2,20 @@
 
 const jokeBtn=document.querySelector(".btn-joke");
 const jokeHolder=document.querySelector(".joke-holder")
-const sceletorLaught=document.querySelector(".audio");
-const sceletor = document.querySelector(".mr-skeletor");
+const audio = document.querySelector(".audio");
+const skeletor = document.querySelector(".mr-skeletor");
 
-sceletor.addEventListener("click", ()=>sceletorRandomLaught())
+let skeletorLaughtFrase = [
+  "Ого, давай еще",
+  "Соскучился по чужим прикосновениям",
+  "Наверное хватит",
+  "Чел, это перестает быть смешным",
+  "Уже как то по гейски выглядит",
+  "Это харасмент",
+  "Прекрати"
+]
+
+skeletor.addEventListener("click", () => sceletorRandomLaught());
 
 
 jokeBtn.addEventListener("click", () => jokeEvent(jokeHolder))
@@ -24,6 +34,7 @@ async function getData() {
 }
 
 function sceletorRandomLaught() {
-  console.log("check ", sceletorLaught)
-  sceletorLaught.play();
+let randomFive=Math.floor(Math.random()*5+1);
+  audio.src=`./assets/audio/skeletor${randomFive}.mp3`
+  audio.play();
 }
