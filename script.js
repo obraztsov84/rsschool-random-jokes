@@ -6,6 +6,8 @@ const audio = document.querySelector(".audio");
 const skeletor = document.querySelector(".mr-skeletor");
 
 let skeletorLaughtFrase = [
+  "Хахаха",
+  "Щекотно",
   "Ого, давай еще",
   "Соскучился по чужим прикосновениям",
   "Наверное хватит",
@@ -18,11 +20,11 @@ let skeletorLaughtFrase = [
 skeletor.addEventListener("click", () => sceletorRandomLaught());
 
 
-jokeBtn.addEventListener("click", () => jokeEvent(jokeHolder))
+jokeBtn.addEventListener("click", () => jokeEvent(jokeHolder, true))
 
- async function jokeEvent(placeForJoke) {
-  console.log("click")
+ async function jokeEvent(placeForJoke, laugth = false) {
   placeForJoke.textContent = await getData();
+  if (laugth) sceletorRandomLaught();
 }
 
 const url = 'https://api.icndb.com/jokes/random';
@@ -33,8 +35,16 @@ async function getData() {
   return data.value.joke
 }
 
+
+
 function sceletorRandomLaught() {
 let randomFive=Math.floor(Math.random()*5+1);
   audio.src=`./assets/audio/skeletor${randomFive}.mp3`
   audio.play();
+  skeletor.classList.add("animation-shake");
+  setTimeout(()=>{skeletor.classList.remove("animation-shake")}, 1000)
 }
+
+
+
+jokeEvent(jokeHolder)
