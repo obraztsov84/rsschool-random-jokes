@@ -66,6 +66,7 @@ h1, h2, h3, p {
 }
 
 .mr-skeletor {
+  margin: 10px;
   cursor: pointer;
   width: 600px;
   height:400px;
@@ -77,6 +78,10 @@ h1, h2, h3, p {
       width:320px;
       height:200px;      
     }
+}
+
+.mr-skeletor.lucoa {
+  background-image: url("./assets/skeletor/lucoa.png")
 }
 
 /* FOOTER */
@@ -110,6 +115,10 @@ h1, h2, h3, p {
 
 .animation-shake {
   animation: shake 0.5s;
+}
+
+.lucoa.animation-shake {
+  animation: shake 1s;
 }
 
 @keyframes shake {

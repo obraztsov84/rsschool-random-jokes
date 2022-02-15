@@ -1,6 +1,6 @@
 "use strict"
 
-console.log("Шутки на русском подрубил с сайта http://www.rzhunemogu.ru/, прям не на 100% уверен что будет правильно работать")
+console.log("Шутки на русском среднего качества. Пощелкай на скелетора!")
 
 const jokeBtn=document.querySelector(".btn-joke");
 const jokeHolder=document.querySelector(".joke-holder")
@@ -31,13 +31,14 @@ let skeletorLaughtFrase = [
   "Наверное хватит",
   "Чел, это перестает быть смешным",
   "Уже как то по гейски выглядит",
-  "Это харасмент",
-  "Прекрати"
+  "Прекрати",
+  "Еще раз и я уйду",
+  "Ara ara"
 ]
 
 skeletor.addEventListener("click", () => {
-  sceletorRandomLaught(),
-  tickles()
+  tickles(),
+  sceletorRandomLaught()
 });
 
 jokeBtn.addEventListener("click", () => {
@@ -64,11 +65,18 @@ function randomRussianJoke(placeForJoke) {
 
 
 function sceletorRandomLaught() {
-let randomFive=Math.floor(Math.random()*5+1);
-  audio.src=`./assets/audio/skeletor${randomFive}.mp3`
-  audio.play();
-  skeletor.classList.add("animation-shake");
-  setTimeout(()=>{skeletor.classList.remove("animation-shake")}, 1000)
+  if (skeletor.dataset.char==="skel") {
+    let randomFive=Math.floor(Math.random()*5+1);
+    audio.src=`./assets/audio/skeletor${randomFive}.mp3`
+    audio.play();
+    skeletor.classList.add("animation-shake");
+    setTimeout(()=>{skeletor.classList.remove("animation-shake")}, 1000)
+  } else {
+    audio.src="./assets/audio/ara-ara.mp3";
+    audio.play();
+    skeletor.classList.add("animation-shake");
+    setTimeout(()=>{skeletor.classList.remove("animation-shake")}, 1000)
+  }
 }
 
 let theshhold=0;
@@ -76,7 +84,13 @@ function tickles() {
   bubbleText.textContent=skeletorLaughtFrase[theshhold]
   bubble.classList.add("show")
   setTimeout(()=>{bubble.classList.remove("show")}, 2000)
-  if (theshhold<9) theshhold++;
+  if (theshhold<10) {
+    theshhold++
+  } else if (theshhold===10) {
+    console.log("Поздравляю, вы нашли пасхалку")
+    skeletor.classList.add("lucoa")
+    skeletor.dataset.char="lucoa"
+  };
 }
 
 jokeEvent(jokeHolder)
