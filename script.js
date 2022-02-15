@@ -9,6 +9,7 @@ const skeletor = document.querySelector(".mr-skeletor");
 const bubble = document.querySelector(".speech")
 const bubbleText = document.querySelector(".speech-text")
 const langBtn = document.querySelector(".btn-lang")
+const favicon = document.querySelector("link[rel~='icon']");
 
 langBtn.addEventListener("click", () => {
   if (langBtn.dataset.lang==="en") {
@@ -90,6 +91,7 @@ function tickles() {
     console.log("Поздравляю, вы нашли пасхалку")
     skeletor.classList.add("lucoa")
     skeletor.dataset.char="lucoa"
+    favicon.href="./assets/skeletor/lucoa.png"
   };
 }
 
